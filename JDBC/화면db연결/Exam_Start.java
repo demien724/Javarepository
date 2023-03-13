@@ -17,6 +17,7 @@ public class Exam_Start {
 			if(loginMember.getID() != null && loginMember.getPW() != null) {
 				Exam_Main index = new Exam_Main();
 				index.OpenIndex(loginMember);
+
 			}
 
 		

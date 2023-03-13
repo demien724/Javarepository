@@ -42,10 +42,12 @@ public class ExamMemberDAO {
 			} else {
 				System.out.println("로그인 실패");
 			}
+
+			ps.close();
+			con.close();
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
-		
+		}		
 		return vo;
 	}
 }
