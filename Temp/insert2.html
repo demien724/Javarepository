@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	alert('글쓰기 페이지 입니다. 반갑습니다!')
+</script>
+<style type="text/css">
+body { /* 컨트롤 + / - 자동주석, 태그선택! */
+	background: #18de02;
+}
+
+button {
+	background: pink;
+}
+
+.t1 { /* .은 클래스 선택!, 여러개선택!  */
+	background: yellow;
+	width: 150px;
+	text-align: center;
+}
+
+#b1 {
+	color:red;
+}
+
+#b2{
+	color:blue;
+}
+</style>
+</head>
+<body>
+	<h3>글쓰기 페이지 입니다.</h3>
+	<hr>
+	<a href="index.html"><button id="b1">첫 페이지로</button></a>
+	<form action="insert2.jsp">
+	<!-- form의 action은 무조건 jsp 파일이어야만 함 -->
+	<table border="1">
+		<tr>
+			<td class="t1">글 번호 </td>
+			<td>
+				<input name="no">
+			</td>
+		</tr>
+		<tr>
+			<td class="t1">글 제목 </td>
+			<td>
+				<input name="title">
+			</td>
+		</tr>
+		<tr>
+			<td class="t1">글 내용 : </td>
+			<td>
+				<input name="content">
+			</td>
+		</tr>
+		<tr>
+			<td class="t1">글쓴이 : </td>
+			<td>
+				<input name="writer">
+			</td>
+		</tr>
+		<tr>
+		<td colspan="2" class="t1">
+			<button id="b2">회원가입 데이터 전송</button>
+		</td>
+		</tr>
+		<!-- 입력한 값들이 서버(톰킷)로 전달될때에는 Form안에 있어야합니다.--> 
+	</table>
+	</form>
+	<form action="b.jsp"></form>
+</body>
+</html>
