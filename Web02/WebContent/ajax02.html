@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="JS/jquery-3.6.4.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$("#b1").click(function(){
+			// b1을 클릭했을 때 Function 내용을 실행
+			$.ajax({
+				url : "ok.html",
+				success : function(result){
+					$("#result").append(result + "<br>")				
+				} // sucess
+			}) // ajax
+		}) // b1
+		
+		
+		$("#b2").click(function(){
+			// b1을 클릭했을 때 Function 내용을 실행
+			$.ajax({
+				url : "tour.html",
+				success : function(result){
+					$("#result").append(result + "<br>")				
+				} // sucess
+			}) // ajax
+		}) // b1
+		
+		
+		$("#b3").click(function(){
+			// b1을 클릭했을 때 Function 내용을 실행
+			$.ajax({
+				url : "weather.html",
+				success : function(result){
+					$("#result").append(result + "<br>")				
+				} // sucess
+			}) // ajax
+		}) // b1
+		
+	}) // $
+	
+		
+</script>
+</head>
+<body>
+	<button id = "b1">OK 사이트 연결</button>
+	<button id = "b2">OK 사이트 연결</button>
+	<button id = "b3">OK 사이트 연결</button>
+	<hr>
+	<div id = 'result'></div>
+</body>
+</html>

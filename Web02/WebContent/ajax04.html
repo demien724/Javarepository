@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="JS/jquery-3.6.4.js"></script>
+<script>
+	$(function() {
+		
+		// 원화를 달러로
+		$("#b1").click(function() {
+			$.ajax({
+				url : "wonToDollor.jsp",
+				data : {
+					won : $("#won").val()					
+				},
+				success: function(res) {
+					alert(res)
+					$('#result').html(res+"달러")
+				},
+				error : function(e){
+				}
+			})
+		})
+		
+		// 달러를 원화로
+		$("#b2").click(function() {
+			$.ajax({
+				url : "dollorToWon.jsp",
+				data : {
+					dollor : $("#dollor").val()					
+				},
+				success: function(res) {
+					alert(res)
+					$('#result').html(res+"원")
+				},
+				error : function(e){
+				}
+			})
+		})
+	})
+</script>
+</head>
+<body>
+	<h3>비동기 통신</h3>
+	원화를 달려로
+	<input id="won" type="number">
+	<button id="b1">변환</button>
+	<br>
+	
+	달러를 원화로
+	<input id="dollor" type="number">
+	<button id="b2">변환</button>
+	<br>
+	<hr>
+	<div id=result></div>
+</body>
+</html>

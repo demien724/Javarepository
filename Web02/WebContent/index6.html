@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function me() {
+		name	= document.getElementById('name').value
+		corp = document.getElementById('corp').value
+		emp = document.getElementById('emp').value
+		gender = document.getElementById('sexual').value
+		
+		alert("멀티회사에 " + emp + "으로있는 " + name +"입니다")
+		
+		result2 = document.getElemtnById('result')
+		if(sexual == '남자') {
+			result2.innerHTML = "<img src=Image/yes.jpg width=500 height = 300>"
+			} else if(sexual == '여자') {
+			result2.innerHTML = "<img src=Image/no.jpg width=500 height = 300>"
+			} 
+		 
+		
+	}
+	
+</script>
+</head>
+<body>
+<div id="input">
+		이름 <input id="name"><br>
+		회사 <input id="corp"><br>
+		직책 <input id="emp"><br>
+		성별 <input id="gender"><br>
+		
+		<button onclick='me()'>확인</button>
+		
+		<hr>
+		</div>
+	<div id = "output"> 
+	</div>
+</body>
+</html>
