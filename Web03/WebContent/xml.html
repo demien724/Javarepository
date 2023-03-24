@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="Source/JS/jquery-3.6.4.js"></script>
+<script type="text/javascript">
+
+	// 리뷰
+	// 익명의 function을 사용할 것임
+	$(function() {
+		
+		/* 
+			1. 아이디가 B1인 태그를 지정합니다.
+			2. 지정한 아이디를 클릭할 경우, 익명의 Function을 수행합니다.
+		*/
+		$('#b1').click(function() {
+			$.ajax({
+				url : "Source/Data/rank.xml",
+				success : function(doc) {
+					alert("xml요청 성공>> " + doc)
+					
+					list = $(doc).find('rank') //find의 결과는 여러개(배열)
+					
+					alert(list.length)
+					
+					for (i = 0; i < list.length; i++) {
+						/* console.log($(list[i]).find('name').text()) */
+						/* console.log($(list[i]).find('tel').text()) */
+						name = $(list[i]).find('name').text()
+						tel = $(list[i]).find('tel').text()
+						
+						$('#result').append(name + ", " + tel + "<br>")
+					}
+				}
+			})
+		})
+		
+		$('#b2').click(function() {
+			$.ajax({
+				url : "Source/Data/rank2.xml",
+				success : function(doc) {
+					alert("xml요청 성공>> " + doc)
+					
+					list = $(doc).find('winner') //find의 결과는 여러개(배열)
+					
+					alert(list.length)
+					
+					for (i = 0; i < list.length; i++) {
+						/* console.log($(list[i]).find('name').text()) */
+						/* console.log($(list[i]).find('tel').text()) */
+						year = $(list[i]).find('year').text()
+						className = $(list[i]).find('class').text()
+						name = $(list[i]).find('name').text()
+						field = $(list[i]).find('field').text()
+						
+						$('#result').append(year + ", " + className + ", " + name + ", " + field  + "<br>" )
+					}
+				}
+			})
+		})
+		
+		// Dataset.xml 추출 및 출력
+		$('#b3').click(function() {
+			$.ajax({
+				url : "Source/Data/dataset.xml",
+				success : function(doc) {
+					alert("xml요청 성공>> " + doc)
+					
+					list = $(doc).find('record') //find의 결과는 여러개(배열)
+					
+					alert(list.length)
+					
+					for (i = 0; i < list.length; i++) {
+						/* console.log($(list[i]).find('name').text()) */
+						/* console.log($(list[i]).find('tel').text()) */
+						id = $(list[i]).find('id').text()
+						first_name = $(list[i]).find('first_name').text()
+						last_name = $(list[i]).find('last_name').text()
+						email = $(list[i]).find('email').text()
+						gender = $(list[i]).find('gender').text()
+						address = $(list[i]).find('address').text()
+						
+						$('#result').append(id + ", " + first_name + ", " + last_name + ", " + email + ", " + gender + ", " + address + "<br>" )
+						
+						$.ajax({
+							url : "mock.jsp",
+							data : {
+								id : id,
+								first_name : first_name,
+								last_name : last_name,
+								email : email,
+								gender : gender,
+								address : address
+							}, 
+							success: function() {
+								console.log('넣기 성공~!')
+							} //success
+						})
+					}
+				}
+			})
+		})
+	}) //$
+</script>
+</head>
+<body bgcolor="lime">
+	<button id="b1">XML받아오기-1</button>
+	<button id="b2">XML받아오기-2</button>
+	<button id="b3">XML받아오기-3</button>
+	<hr>
+	<div id="result"></div>
+</body>
+</html>

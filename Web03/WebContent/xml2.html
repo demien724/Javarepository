@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src="Source/JS/jquery-3.6.4.js"></script>
+<script>
+	$(function() {
+		$('#b1').click(function() {
+			$.ajax	({
+				url : "Source/Data/dataset_2.xml",
+				success : function(doc) {
+					list = $(doc).find('record')
+					
+					for (i = 0; i < list.length; i++) {
+						/* console.log($(list[i]).find('name').text()) */
+						/* console.log($(list[i]).find('tel').text()) */
+						id = $(list[i]).find('id').text()
+						email = $(list[i]).find('email').text()
+						phone = $(list[i]).find('phone').text()
+						last_Name = $(list[i]).find('last_Name').text()
+						first_Name = $(list[i]).find('first_Name').text()
+						
+						$('#result').append(i + " : "+ first_Name + " " + last_Name + "<br>" )
+						// 여기까지는 문제 없음
+						
+						$.ajax({
+							url : "mock2.jsp",
+							data : {
+								id : id,
+								email : email,
+								phone : phone,
+								last_Name : last_Name,
+								first_Name : first_Name
+							}, 
+							success: function() {
+							} //success
+						})
+					}
+				}
+			})
+		})	
+	})
+</script>
+<title>Insert title here</title>
+</head>
+<body>
+	<button id="b1">데이터 추출 및 생성</button>
+	<hr>
+	<div id='result'></div>
+</body>
+</html>
