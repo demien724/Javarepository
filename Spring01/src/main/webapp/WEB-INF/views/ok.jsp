@@ -5,18 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style type="text/css">
-	body{
-		background-color: blue;
-		color:white;
-	}
-</style>
 </head>
 <body>
-	글 검색이 완료되었습니다.<br>
-	${bag.no}	<br>
-	${bag.title}	<br>
-	${bag.content}	<br>
-	${bag.writer}	<br>
+	로그인 성공<br>
+	<img src = "https://img.traveltriangle.com/blog/wp-content/uploads/2018/11/Rivers-of-the-World-Cover.jpg" width = 500px>
+	
 </body>
 </html>

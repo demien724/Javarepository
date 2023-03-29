@@ -7,16 +7,13 @@
 <title>Insert title here</title>
 <style type="text/css">
 	body{
-		background-color: blue;
-		color:white;
+		background-color: black;
+		color: white;
 	}
 </style>
 </head>
 <body>
-	글 검색이 완료되었습니다.<br>
-	${bag.no}	<br>
-	${bag.title}	<br>
-	${bag.content}	<br>
-	${bag.writer}	<br>
+	로그인 되셨습니다.
+	
 </body>
 </html>

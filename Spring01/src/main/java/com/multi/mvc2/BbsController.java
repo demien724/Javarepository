@@ -2,6 +2,7 @@ package com.multi.mvc2;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller	// 스프링에서 제어하는 역할로 등록
@@ -51,11 +52,19 @@ public class BbsController {
 	}
 	
 	@RequestMapping("one2.multi")
-	public void one(int no) {
+	public String one(int no,Model model) {
 		System.out.println("Search a Document Info");
 		System.out.println(dao.toString());
 		
-		dao.one(no);
+		BbsVO bag = dao.one(no);
+		
+		if(bag == null) {
+			return "redirect:bbs.jsp";
+		}
+		else {
+			model.addAttribute("bag ", bag);
+			return "one2";
+		}
 	}
 	
 	@RequestMapping("list2.multi")

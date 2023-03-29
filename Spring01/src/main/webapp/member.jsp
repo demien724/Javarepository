@@ -7,6 +7,14 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<h3>로그인 화면 입니다</h3>
+	<hr color="red">
+	<form action="login" method="get">
+		ID <input name="id"> <br>
+		Password <input name="pw"> <br>
+		<button type="submit">Login</button>
+	</form>
+
 	<h3 style="color: red;">JSP Test</h3>
 	<hr color="red">
 
@@ -48,6 +56,7 @@
 		<button type="submit">서버로 전송</button>
 	</form>
 	<hr color="red">
+	
 	
 	
 </body>

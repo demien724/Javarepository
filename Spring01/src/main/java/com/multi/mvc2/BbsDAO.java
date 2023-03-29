@@ -91,10 +91,10 @@ public class BbsDAO { //CRUD
 			String user = "root";
 			String password = "1234";
 			Connection con = DriverManager.getConnection(url, user, password);
-			System.out.println("2. 오라클 연결 성공.");
+			System.out.println("2. 오라클 연결 성공." + no);
 	
 			
-			String sql = "SELECT * FROM BBS WHERE NO = ? ";
+			String sql = "SELECT * FROM MULTI.bbs where no = ?";
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setInt(1, no);
 			
@@ -103,8 +103,6 @@ public class BbsDAO { //CRUD
 			
 			rs = ps.executeQuery(); //select문 전송시  
 			System.out.println("4. SQL문 오라클로 보내기 성공.");
-			
-			
 			
 			
 			if(rs.next()) { 

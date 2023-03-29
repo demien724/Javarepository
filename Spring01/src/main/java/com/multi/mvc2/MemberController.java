@@ -16,6 +16,24 @@ public class MemberController {
 	// 회원가입, 수정, 탈퇴, 정보검색
 	
 	
+	@RequestMapping("login")
+	public String login(MemberVO bag) {
+//		System.out.println(bag);
+		int result = dao.login(bag);
+		if(result == 1) {
+			return "ok";
+		} else {
+//			return "no";
+			// 	views 아래가 아닌 webapp 아래로
+			// member.jsp로 가고싶은 경우 redirect 를 사용합니다.
+			
+			return "redirect:member.jsp";
+			
+		}
+		
+		
+	}
+	
 	@RequestMapping("insert")
 	public void insert(MemberVO bag) {
 		/*

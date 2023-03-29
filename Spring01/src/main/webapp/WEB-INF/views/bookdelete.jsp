@@ -5,18 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style type="text/css">
-	body{
-		background-color: blue;
-		color:white;
-	}
-</style>
 </head>
 <body>
-	글 검색이 완료되었습니다.<br>
-	${bag.no}	<br>
-	${bag.title}	<br>
-	${bag.content}	<br>
-	${bag.writer}	<br>
+	Bookmark Delete Success<br>
+	
 </body>
 </html>
