@@ -1,5 +1,7 @@
 package com.multi.mvc2;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -68,8 +70,13 @@ public class BbsController {
 	}
 	
 	@RequestMapping("list2.multi")
-	public void list(BbsVO bag) {
-		System.out.println("Search Users Info");
-		System.out.println(bag);
+	public void list(Model model) {
+		System.out.println("Search All Bbs Info << 1번째 실행");
+		ArrayList<BbsVO> list = dao.list();
+
+		System.out.println("list를 추출 << 2번째 실행");
+		
+		// 
+		model.addAttribute("list2", list);
 	}
 }

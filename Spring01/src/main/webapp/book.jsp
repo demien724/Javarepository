@@ -29,6 +29,7 @@ hr {
 	</form>
 
 	<h3>북마크 검색</h3>
+	
 	<form action="bookSearch">
 		Name <input name="name" type="text"><br>
 		<button type="submit">검색</button>
@@ -40,5 +41,8 @@ hr {
 			name="url" type="text"><br>
 		<button type="submit">검색</button>
 	</form>
+	
+	<hr>
+	<a href="bookList">모든 북마크 검색</a><br>
 </body>
 </html>

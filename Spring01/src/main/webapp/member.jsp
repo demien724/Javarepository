@@ -58,6 +58,8 @@
 	<hr color="red">
 	
 	
+	<a href="list">모든 회원 정보 갖고오기</a>
+	
 	
 </body>
 </html>

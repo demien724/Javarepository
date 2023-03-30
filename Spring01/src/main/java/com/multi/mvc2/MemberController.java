@@ -1,13 +1,16 @@
 package com.multi.mvc2;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller	// 스프링에서 제어하는 역할로 등록
 public class MemberController {
 	
-	// 자동으로 연결해주는 문법
+	// MeberDAO의 싱글톤 객체 ram의 어디에 있는지 찾아서 그 주소 아래 변수를 넣어주세요	
 	@Autowired
 	MemberDAO dao;
 	
@@ -78,8 +81,11 @@ public class MemberController {
 	}
 	
 	@RequestMapping("list")
-	public void list(MemberVO bag) {
-		System.out.println("Search Users Info");
-		System.out.println(bag);
+	public void list(Model model) {
+		System.out.println("Search All Users Info");
+		
+		ArrayList<MemberVO> list = dao.list();
+		model.addAttribute("list",list);
+		
 	}
 }

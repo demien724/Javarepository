@@ -1,5 +1,7 @@
 package com.multi.mvc2;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -71,4 +73,12 @@ public class BookController {
 			return "bookOne";
 		}
 	}	// bookSearch One
+	
+	@RequestMapping("bookList")
+	public void bookList(Model model) {
+		System.out.println("Mapping Confirm Book List");
+		
+		ArrayList<BookDTO> list = dao.list();
+		model.addAttribute("list", list);
+	}
 }

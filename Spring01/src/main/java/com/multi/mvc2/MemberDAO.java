@@ -32,14 +32,14 @@ public class MemberDAO { //CRUD
 		MemberVO bag = null;
 		try {
 			// 1.오라클 11g와 연결한 부품 설정
-			Class.forName("oracle.jdbc.driver.OracleDriver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 			System.out.println("1. 오라클과 자바 연결할 부품 설정 성공.");
 			Locale.setDefault(Locale.US); //맥 locale에러나신 분들만!!!
 			
 			// 2.오라클 11g에 연결해보자.(java --- oracle) 
-			String url = "jdbc:oracle:thin:@localhost:3306:xe";
-			String user = "system";
-			String password = "oracle";
+			String url = "jdbc:mysql://localhost:3306/multi";
+			String user = "root";
+			String password = "1234";
 			Connection con = DriverManager.getConnection(url, user, password); //Connection
 			//String data = JOptionPane.showInputDialog("이름입력"); //String, 임아무개 
 			System.out.println("2. 오라클 연결 성공.");
@@ -52,7 +52,7 @@ public class MemberDAO { //CRUD
 			//SQL부품으로 만들어주어야 함.
 			//PreparedStatement가 SQL부품!!
 			
-			String sql = "select * from hr.MEMBER";
+			String sql = "select * from Member";
 			PreparedStatement ps = con.prepareStatement(sql); //PreparedStatement
 			//삭제!!!! ps.setString(1, id);
 			System.out.println("3. SQL문 부품(객체)으로 만들어주기 성공.");

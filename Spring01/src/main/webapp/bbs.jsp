@@ -48,6 +48,7 @@
 	</form>
 	<hr color="red">
 	
-	
+	<!-- BbsController의 list.multi와 연결 --> 
+	<a href="list2.multi">모든 글 리스트 검색</a>
 </body>
 </html>
