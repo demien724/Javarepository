@@ -1,5 +1,6 @@
 package com.multi.mvc2;
 
+
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,9 +29,12 @@ public class MusicController {
 	}
 	
 	
-	@RequestMapping("list.Music")
+	@RequestMapping("listMusic")
 	public void list(Model model) {
 		System.out.println("request mapping confirm >> list.Music");	// 매핑 확인용
+		
+		ArrayList<MusicDTO> list = dao.list();
+		model.addAttribute("list", list);
 		
 	}
 }

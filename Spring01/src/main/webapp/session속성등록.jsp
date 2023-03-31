@@ -7,8 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-	${id} 님 로그인 성공<br>
-	<img src = "https://img.traveltriangle.com/blog/wp-content/uploads/2018/11/Rivers-of-the-World-Cover.jpg" width = 500px>
+	<%
+		session.setAttribute("count", 0);
+		session.setAttribute("user", "root");
+	%>
 	
+	<hr color="red">
+	<a href="session속성갖고오기.jsp">이동</a>
 </body>
 </html>

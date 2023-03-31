@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%	
+	/* 다운 캐스팅 */
+	int count = (Integer) session.getAttribute("count");
+	count++;
+%>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,8 +14,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	${id} 님 로그인 성공<br>
-	<img src = "https://img.traveltriangle.com/blog/wp-content/uploads/2018/11/Rivers-of-the-World-Cover.jpg" width = 500px>
-	
+	조회수 : <%= count %>
+
 </body>
 </html>

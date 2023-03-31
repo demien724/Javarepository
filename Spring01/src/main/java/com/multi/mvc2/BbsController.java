@@ -79,4 +79,6 @@ public class BbsController {
 		// 
 		model.addAttribute("list2", list);
 	}
+	
+	
 }

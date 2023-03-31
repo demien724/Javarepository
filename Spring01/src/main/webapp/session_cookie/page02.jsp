@@ -7,12 +7,21 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%
-		Cookie c1 = new Cookie("category","book");
-		Cookie c2 = new Cookie("exercies","run");
-		
-		response.addCookie(c1);
-		response.addCookie(c2);
-	%>
+<%
+	Cookie[] cookies = request.getCookies();
+%>
+<hr color="red">
+쿠키의 개수는 : <%= cookies.length %>
+<hr color="red">
+<%
+    for(Cookie c: cookies){
+    	if(!c.getName().equals("JSESSIONID")){
+    		out.print(c.getName() + ": " + c.getValue() + "<br>");
+    	}
+    }
+%>
+
+
+
 </body>
 </html>

@@ -7,13 +7,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%
-		Cookie c1 = new Cookie("category","book");
-		Cookie c2 = new Cookie("exercies","run");
-		
-		response.addCookie(c1);
-		response.addCookie(c2);
-	%>
-	<a href="page02.jsp">Page 02</a>
+<%
+	//1. 쿠키객체 생성, 브라우저에 저장할 정보 1개당 쿠키 1개
+	Cookie c1 = new Cookie("category", "book");
+	Cookie c2 = new Cookie("ex", "run");
+	
+	//2. 쿠키를 서버에서 브라우저로 보낸다. 
+	response.addCookie(c1);
+	response.addCookie(c2);
+%>
+<hr>브라우저에 쿠키를 심었음.
+<a href="page02.jsp">쿠키리스트가지고오기</a>
 </body>
 </html>
