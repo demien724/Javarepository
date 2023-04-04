@@ -9,32 +9,32 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-body {
-	background: yellow;
-}
-
 td {
 	width: 100px;
 	text-align: center;
 }
 
 .top {
-	background: black;
+	background: gray;
 	color: white;
 }
 
 .down {
-	background: lime;
+	background: white;
+	
+	color : black;
+	
+	text-decoration : none;
 }
 </style>
 </head>
 <body>
 	<table>
 		<tr>
-			<td class="top">no</td>
-			<td class="top">title</td>
-			<td class="top">content</td>
-			<td class="top">writer</td>
+			<td class="top">번호</td>
+			<td class="top">제목</td>
+			<td class="top">내용</td>
+			<td class="top">글쓴이</td>
 		</tr>
 
 		<c:forEach items="${list}" var="bag"> 
@@ -46,8 +46,8 @@ td {
 				<td class="down">${bag.content}</td>
 				<td class="down">${bag.writer}</td>
 			</tr>
-
 		</c:forEach>
 	</table>
+	
 </body>
 </html>

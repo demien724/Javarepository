@@ -38,7 +38,7 @@ public class BbsController {
 	}
 	
 	@RequestMapping("delete2.multi")
-	public void delete(int no, BbsDAO dao) {
+	public void delete(int no) {
 		System.out.println("delete요청됨.");
 		System.out.println(no);
 		dao.delete(no);
@@ -66,6 +66,42 @@ public class BbsController {
 		System.out.println(list.size()); //사이즈를 찍어보세요.
 		model.addAttribute("list", list);
 	}
+	
+	
+	@RequestMapping("list5")
+	public void list5(Model model) {
+		ArrayList<BbsVO> list = dao.list();
+		System.out.println(list.size()); //사이즈를 찍어보세요.
+		model.addAttribute("list", list);
+	}
+	
+	@RequestMapping("one6")
+	public void one6(int no, Model model) {
+		BbsVO bag = dao.one(no);
+		//검색결과가 있는지 프린트!
+		System.out.println(bag);
+		
+		// 댓글 불러오기
+		ArrayList<ReplyVO> list = dao2.list(no);
+		
+		
+		model.addAttribute("bag", bag);
+	}
+	
+	@RequestMapping("update3.multi")
+	public String update3(int no, String content) {
+		System.out.println(no + " " + content);
+		int result = dao.update(no, content);
+		
+		if(result == 1) {
+			return "redirect:ajax_new.jsp";
+		} else {
+			return null;
+		}
+	}
+	
+	
+	
 	
 	//https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=1&ie=utf8&query=%EC%9E%90%EB%8F%99%EC%B0%A8
 	
