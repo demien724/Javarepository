@@ -23,7 +23,7 @@ public class BbsController {
 	//바로 아래에 있는 메서드가 호출이 될지를
 	//써주어야 한다. 
 	@RequestMapping("insert2.multi")
-	public void insert(BbsVO bag, BbsDAO dao) {
+	public void insert(BbsVO bag) {
 		//메서드의 입력변수(파라메터)로 변수를
 		//선언해두면, 컨트롤러내의 메서드내에서는
 		//1)bag을 만들어서 
@@ -36,29 +36,28 @@ public class BbsController {
 		dao.insert(bag);
 	}
 	
-//	@RequestMapping("update2.multi")
-//	public void update(BbsVO bag, BbsDAO dao) {
-//		System.out.println("update요청됨.");
-//		System.out.println(bag);	
-//		dao.update(bag);
-//	}
+	@RequestMapping("update2.multi")
+	public void update(BbsVO bag) {
+		System.out.println("update요청됨.");
+		
+		dao.update(bag);
+	}
+	
+	@RequestMapping("delete2.multi")
+	public void delete(int no) {
+		System.out.println("delete 요청됨.");
+		dao.delete(no);
+	}
+	
+	@RequestMapping("one2.multi")
+	public void one(int no, Model model) {
+		System.out.println("one요청됨.");
+		BbsVO bag = dao.one(no);
+		
+		model.addAttribute("bag", bag);
+	}
 //	
-//	@RequestMapping("delete2.multi")
-//	public void delete(int no, BbsDAO dao) {
-//		System.out.println("delete요청됨.");
-//		System.out.println(no);
-//		dao.delete(no);
-//	}
-//	
-//	@RequestMapping("one2.multi")
-//	public void one(int no, Model model) {
-//		System.out.println("one요청됨.");
-//		System.out.println(no);
-//		BbsVO bag = dao.one(no);
-//		//검색결과가 있는지 프린트!
-//		System.out.println(bag);
-//		model.addAttribute("bag", bag);
-//	}
+	
 //	
 //	@RequestMapping("list2")
 //	public void list(Model model) {

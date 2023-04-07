@@ -7,12 +7,17 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Locale;
 
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 //테이블 하나당 DAO하나! ==> CUD를 완성!! 
 @Component
 public class BbsDAO {
-
+	
+	@Autowired
+	SqlSessionTemplate my;
+	
 //	public ArrayList<BbsVO> list() {
 //		ResultSet rs = null; // 항목명 + 결과 데이터를 담고 있는 테이블
 //
@@ -196,9 +201,25 @@ public class BbsDAO {
 //	}
 
 	// public void add2() {
-	public void insert(BbsVO bag) {
-
-
+	public int insert(BbsVO bag) {
+		int result = my.insert("bbs.create",bag);
+		return result;
+				
 	}
 
+	public int update(BbsVO bag) {
+		int result = my.update("bbs.up", bag);
+		return result;
+	}
+	
+	public int delete(int no) {
+		int result = my.delete("bbs.del", no);
+		return result;
+	}
+	
+	public BbsVO one(int no) {
+		BbsVO bag = my.selectOne("bbs.one", no);
+		
+		return bag;
+	}
 }
